@@ -1,0 +1,1918 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>LithoPower Energy — Advanced Lithium-Ion Batteries & Energy Storage Solutions</title>
+<meta name="description" content="LithoPower Energy designs and manufactures lithium-ion battery packs for electric vehicles, solar energy storage, industrial equipment and home backup power. Explore EV battery packs, solar batteries and BMS-protected energy storage systems." />
+<meta name="keywords" content="lithium ion battery, EV battery pack, solar battery, energy storage system, LiFePO4, BMS, battery manufacturer" />
+<meta name="theme-color" content="#050f20" />
+<meta property="og:title" content="LithoPower Energy — Powering the Future with Advanced Lithium Battery Technology" />
+<meta property="og:description" content="High-performance lithium-ion battery solutions for electric mobility, renewable energy and industrial applications." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          navy: {
+            50:'#f2f6fb',100:'#e3ecf7',200:'#c2d5ea',300:'#8fb2d6',400:'#5586bb',
+            500:'#33669f',600:'#245084',700:'#1e406b',800:'#13294a',900:'#0a1a33',950:'#050f20'
+          },
+          volt: {
+            50:'#e9fff6',100:'#c9ffe9',200:'#96ffd4',300:'#5cf9bd',400:'#22e9a4',
+            500:'#00d68f',600:'#00ab74',700:'#00875e',800:'#066a4c',900:'#085740',950:'#00301f'
+          }
+        },
+        fontFamily: { sans: ['Inter','system-ui','-apple-system','Segoe UI','sans-serif'] },
+        boxShadow: {
+          glow: '0 0 45px -12px rgba(0,214,143,.55)',
+          card: '0 18px 40px -22px rgba(10,26,51,.35)'
+        },
+        keyframes: {
+          floaty: { '0%,100%': { transform: 'translateY(0)' }, '50%': { transform: 'translateY(-10px)' } },
+          ping2: { '0%': { transform: 'scale(1)', opacity: '.9' }, '75%,100%': { transform: 'scale(2.2)', opacity: '0' } }
+        },
+        animation: {
+          floaty: 'floaty 6s ease-in-out infinite',
+          'ping2': 'ping2 1.8s cubic-bezier(0,0,.2,1) infinite'
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+  section[id] { scroll-margin-top: 88px; }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .75s cubic-bezier(.16,1,.3,1), transform .75s cubic-bezier(.16,1,.3,1);
+    will-change: opacity, transform;
+  }
+  .reveal.is-visible { opacity: 1; transform: none; }
+
+  .grid-lines {
+    background-image:
+      linear-gradient(to right, rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+  .radial-volt {
+    background:
+      radial-gradient(60% 55% at 78% 18%, rgba(0,214,143,.20) 0%, transparent 62%),
+      radial-gradient(50% 45% at 8% 82%, rgba(51,102,159,.30) 0%, transparent 65%);
+  }
+  .text-gradient {
+    background: linear-gradient(100deg, #ffffff 12%, #5cf9bd 58%, #22e9a4 92%);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+
+  @keyframes cellPulse { 0%,100% { height: 32%; } 50% { height: 94%; } }
+  .cell-fill { height: 55%; animation: cellPulse 3.8s ease-in-out infinite; }
+
+  .bar-fill { width: 0; transition: width 1.5s cubic-bezier(.16,1,.3,1); }
+
+  .acc-panel { max-height: 0; overflow: hidden; transition: max-height .45s cubic-bezier(.16,1,.3,1); }
+  .acc-btn[aria-expanded="true"] .acc-icon { transform: rotate(45deg); }
+  .acc-icon { transition: transform .35s ease; }
+  .acc-btn[aria-expanded="true"] { color: #00ab74; }
+
+  a:focus-visible, button:focus-visible, input:focus-visible,
+  select:focus-visible, textarea:focus-visible {
+    outline: 2px solid #00d68f; outline-offset: 2px; border-radius: 6px;
+  }
+
+  ::-webkit-scrollbar { width: 11px; height: 11px; }
+  ::-webkit-scrollbar-track { background: #eef2f8; }
+  ::-webkit-scrollbar-thumb { background: #b9c7db; border-radius: 99px; border: 3px solid #eef2f8; }
+  ::-webkit-scrollbar-thumb:hover { background: #8fa3bf; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .reveal { opacity: 1 !important; transform: none !important; transition: none !important; }
+    .cell-fill, .animate-floaty, .animate-ping2 { animation: none !important; }
+    .bar-fill { transition: none !important; }
+  }
+</style>
+</head>
+
+<body class="bg-white text-navy-900 antialiased selection:bg-volt-300 selection:text-navy-950">
+
+<!-- ============================================================
+     NAVBAR
+============================================================ -->
+<header id="siteHeader" class="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-navy-950/75 backdrop-blur-xl transition-all duration-300">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <nav class="flex h-16 items-center justify-between gap-4 lg:h-20" aria-label="Main navigation">
+
+      <a href="#home" class="group flex shrink-0 items-center gap-2.5">
+        <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-volt-300 to-volt-600 shadow-glow transition-transform duration-300 group-hover:scale-105">
+          <svg class="h-5 w-5 text-navy-950" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M13.5 2 4 13.2h6.1L9.4 22 19 10.6h-6.2L13.5 2z"/>
+          </svg>
+        </span>
+        <span class="leading-tight">
+          <span class="block text-[15px] font-extrabold tracking-tight text-white">LithoPower</span>
+          <span class="block text-[10px] font-bold uppercase tracking-[0.24em] text-volt-400">Energy</span>
+        </span>
+      </a>
+
+      <ul class="hidden items-center gap-0.5 xl:flex">
+        <li><a href="#home"         class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-volt-400">Home</a></li>
+        <li><a href="#about"        class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-volt-400">About</a></li>
+        <li><a href="#products"     class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-volt-400">Products</a></li>
+        <li><a href="#applications" class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-volt-400">Applications</a></li>
+        <li><a href="#technology"   class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-volt-400">Technology</a></li>
+        <li><a href="#safety"       class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-volt-400">Safety</a></li>
+        <li><a href="#contact"      class="nav-link rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:bg-white/5 hover:text-volt-400">Contact</a></li>
+      </ul>
+
+      <div class="flex items-center gap-2">
+        <a href="#contact" class="hidden rounded-xl bg-volt-500 px-5 py-2.5 text-sm font-bold text-navy-950 shadow-glow transition duration-300 hover:bg-volt-400 hover:shadow-lg sm:inline-flex">
+          Get a Quote
+        </a>
+
+        <button id="menuBtn" type="button"
+          class="inline-flex h-10 w-10 items-center justify-center rounded-xl border border-white/15 text-white transition hover:bg-white/10 xl:hidden"
+          aria-label="Open navigation menu" aria-expanded="false" aria-controls="mobileMenu">
+          <svg id="iconOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"/>
+          </svg>
+          <svg id="iconClose" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </div>
+    </nav>
+  </div>
+
+  <div id="mobileMenu" class="hidden border-t border-white/10 bg-navy-950/98 backdrop-blur-xl xl:hidden">
+    <ul class="mx-auto max-w-7xl space-y-1 px-4 py-4 sm:px-6">
+      <li><a href="#home"         class="mobile-link block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-volt-400">Home</a></li>
+      <li><a href="#about"        class="mobile-link block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-volt-400">About</a></li>
+      <li><a href="#products"     class="mobile-link block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-volt-400">Products</a></li>
+      <li><a href="#applications" class="mobile-link block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-volt-400">Applications</a></li>
+      <li><a href="#technology"   class="mobile-link block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-volt-400">Technology</a></li>
+      <li><a href="#performance"  class="mobile-link block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-volt-400">Performance</a></li>
+      <li><a href="#safety"       class="mobile-link block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-volt-400">Safety</a></li>
+      <li><a href="#contact"      class="mobile-link block rounded-xl px-4 py-3 text-sm font-semibold text-slate-200 transition hover:bg-white/5 hover:text-volt-400">Contact</a></li>
+      <li class="pt-2">
+        <a href="#contact" class="mobile-link block rounded-xl bg-volt-500 px-4 py-3 text-center text-sm font-bold text-navy-950 transition hover:bg-volt-400">Get a Quote</a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+
+<main>
+<!-- ============================================================
+     HERO
+============================================================ -->
+<section id="home" class="relative isolate overflow-hidden bg-navy-950 pt-28 pb-20 lg:pt-36 lg:pb-28">
+  <div class="absolute inset-0 grid-lines opacity-70" aria-hidden="true"></div>
+  <div class="absolute inset-0 radial-volt" aria-hidden="true"></div>
+  <div class="pointer-events-none absolute -left-40 top-1/3 h-96 w-96 rounded-full bg-volt-500/10 blur-3xl" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-center gap-14 lg:grid-cols-2 lg:gap-12">
+
+      <div class="reveal">
+        <span class="inline-flex items-center gap-2 rounded-full border border-volt-500/30 bg-volt-500/10 px-4 py-1.5 text-[11px] font-bold uppercase tracking-[0.16em] text-volt-300">
+          <span class="relative flex h-1.5 w-1.5">
+            <span class="absolute inline-flex h-full w-full animate-ping2 rounded-full bg-volt-400"></span>
+            <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-volt-400"></span>
+          </span>
+          Lithium-Ion Battery Manufacturing
+        </span>
+
+        <h1 class="mt-6 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-5xl lg:text-[3.4rem]">
+          Powering the Future with
+          <span class="text-gradient">Advanced Lithium Battery Technology</span>
+        </h1>
+
+        <p class="mt-6 max-w-xl text-base leading-relaxed text-slate-300 sm:text-lg">
+          High-performance lithium-ion battery solutions for electric mobility, renewable energy
+          and industrial applications — engineered with intelligent BMS protection and long service life.
+        </p>
+
+        <div class="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
+          <a href="#products"
+             class="inline-flex items-center justify-center gap-2 rounded-xl bg-volt-500 px-7 py-3.5 text-sm font-bold text-navy-950 shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-volt-400">
+            Explore Products
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </a>
+          <a href="#contact"
+             class="inline-flex items-center justify-center gap-2 rounded-xl border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-volt-400/60 hover:bg-white/10">
+            Get a Quote
+          </a>
+        </div>
+
+        <dl class="mt-12 grid grid-cols-2 gap-x-6 gap-y-7 border-t border-white/10 pt-8 sm:grid-cols-4">
+          <div>
+            <dd class="text-2xl font-extrabold text-white"><span class="counter" data-count="6000">0</span><span class="text-volt-400">+</span></dd>
+            <dt class="mt-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Cycle Life*</dt>
+          </div>
+          <div>
+            <dd class="text-2xl font-extrabold text-white"><span class="counter" data-count="96">0</span><span class="text-volt-400">%</span></dd>
+            <dt class="mt-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Charge Efficiency*</dt>
+          </div>
+          <div>
+            <dd class="text-2xl font-extrabold text-white"><span class="counter" data-count="48">0</span><span class="text-volt-400">–800V</span></dd>
+            <dt class="mt-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">Voltage Range*</dt>
+          </div>
+          <div>
+            <dd class="text-2xl font-extrabold text-white">24/7</dd>
+            <dt class="mt-1 text-[11px] font-semibold uppercase tracking-wider text-slate-400">BMS Monitoring</dt>
+          </div>
+        </dl>
+        <p class="mt-4 text-[11px] text-slate-500">*Illustrative demo figures — actual values depend on configuration and usage.</p>
+      </div>
+
+      <div class="reveal relative" style="transition-delay:.15s">
+        <div class="absolute -inset-8 rounded-[3rem] bg-volt-500/10 blur-3xl" aria-hidden="true"></div>
+
+        <div class="relative rounded-3xl border border-white/10 bg-white/[0.045] p-5 backdrop-blur-sm sm:p-7">
+          <div class="flex flex-wrap items-center justify-between gap-3">
+            <div>
+              <p class="text-[10px] font-bold uppercase tracking-[0.2em] text-volt-400">Battery Module</p>
+              <p class="mt-1 text-lg font-extrabold text-white">48 V · LiFePO₄ Pack</p>
+            </div>
+            <span class="inline-flex items-center gap-2 rounded-full border border-volt-500/30 bg-volt-500/10 px-3 py-1 text-[11px] font-bold text-volt-300">
+              <span class="relative flex h-1.5 w-1.5">
+                <span class="absolute inline-flex h-full w-full animate-ping2 rounded-full bg-volt-400"></span>
+                <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-volt-400"></span>
+              </span>
+              BMS ACTIVE
+            </span>
+          </div>
+
+          <div id="cellGrid" class="mt-6 grid grid-cols-6 gap-2" role="img" aria-label="Illustration of a battery module with 18 cells"></div>
+
+          <div class="mt-7 grid grid-cols-3 gap-3">
+            <div class="rounded-2xl border border-white/10 bg-navy-900/60 p-3 text-center">
+              <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Capacity</p>
+              <p class="mt-1 text-sm font-extrabold text-white">100 Ah</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-navy-900/60 p-3 text-center">
+              <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Energy</p>
+              <p class="mt-1 text-sm font-extrabold text-white">4.8 kWh</p>
+            </div>
+            <div class="rounded-2xl border border-white/10 bg-navy-900/60 p-3 text-center">
+              <p class="text-[10px] font-semibold uppercase tracking-wider text-slate-400">Chemistry</p>
+              <p class="mt-1 text-sm font-extrabold text-white">LiFePO₄</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="absolute -left-3 bottom-16 hidden animate-floaty rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-card sm:block">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Thermal</p>
+          <p class="text-sm font-extrabold text-navy-900">Managed Cooling</p>
+        </div>
+        <div class="absolute -right-4 -top-5 hidden animate-floaty rounded-2xl border border-slate-200 bg-white px-4 py-3 shadow-card sm:block" style="animation-delay:1.4s">
+          <p class="text-[10px] font-bold uppercase tracking-wider text-slate-400">Protection</p>
+          <p class="text-sm font-extrabold text-navy-900">Multi-Layer BMS</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="relative mx-auto mt-16 max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="rounded-2xl border border-white/10 bg-white/[0.03] px-6 py-5">
+      <p class="text-center text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+        Designed and tested against common industry standards
+      </p>
+      <ul class="mt-4 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-300">
+        <li>IEC 62619</li>
+        <li class="text-volt-500/40">•</li>
+        <li>UN 38.3</li>
+        <li class="text-volt-500/40">•</li>
+        <li>ISO 9001 QMS</li>
+        <li class="text-volt-500/40">•</li>
+        <li>CE</li>
+        <li class="text-volt-500/40">•</li>
+        <li>RoHS</li>
+        <li class="text-volt-500/40">•</li>
+        <li>MSDS Available</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     WHY LITHIUM BATTERY
+============================================================ -->
+<section id="why" class="relative bg-slate-50 py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-volt-600">Why Lithium Battery</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl">
+        Built to deliver more energy, for longer
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-600">
+        Lithium-ion chemistry offers clear advantages over traditional lead-acid and NiCd systems —
+        lighter weight, deeper usable capacity and significantly longer service life.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-volt-400 transition group-hover:bg-volt-500 group-hover:text-navy-950">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+        </span>
+        <h3 class="mt-5 text-lg font-bold text-navy-950">High Energy Density</h3>
+        <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
+          More usable energy per kilogram and per litre, so packs stay compact and lightweight.
+          Typical cell-level values range from roughly 150–250 Wh/kg depending on chemistry.
+        </p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.06s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-volt-400 transition group-hover:bg-volt-500 group-hover:text-navy-950">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3.2-6.9"/><path d="M21 4v5h-5"/></svg>
+        </span>
+        <h3 class="mt-5 text-lg font-bold text-navy-950">Long Cycle Life</h3>
+        <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
+          LiFePO₄ configurations can be specified for several thousand charge–discharge cycles at
+          defined depth of discharge, reducing total cost of ownership over the system's life.
+        </p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.12s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-volt-400 transition group-hover:bg-volt-500 group-hover:text-navy-950">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2v6M12 16v6M4.9 4.9l4.2 4.2M14.9 14.9l4.2 4.2M2 12h6M16 12h6M4.9 19.1l4.2-4.2M14.9 9.1l4.2-4.2"/></svg>
+        </span>
+        <h3 class="mt-5 text-lg font-bold text-navy-950">Fast Charging</h3>
+        <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
+          Lithium cells accept higher charge currents than lead-acid equivalents. With correct
+          thermal design and BMS limits, packs can be charged at elevated C-rates safely.
+        </p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.06s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-volt-400 transition group-hover:bg-volt-500 group-hover:text-navy-950">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 1 5 5L9 22H2v-7L12.7 4.3"/><path d="M14 8l2 2"/></svg>
+        </span>
+        <h3 class="mt-5 text-lg font-bold text-navy-950">Low Maintenance</h3>
+        <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
+          No water topping-up, no equalisation charging and no memory effect. Sealed construction
+          keeps service requirements minimal in most installations.
+        </p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.12s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-volt-400 transition group-hover:bg-volt-500 group-hover:text-navy-950">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+        </span>
+        <h3 class="mt-5 text-lg font-bold text-navy-950">High Efficiency</h3>
+        <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
+          Round-trip energy efficiency is typically very high, meaning less energy is wasted as heat
+          during charging and discharging compared with older battery chemistries.
+        </p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-7 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.18s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-navy-950 text-volt-400 transition group-hover:bg-volt-500 group-hover:text-navy-950">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11 20A7 7 0 0 1 4 13c0-5 4-9 9-11 1 4 3 5 5 7 1.4 1.4 2 3.2 2 5a6 6 0 0 1-6 6h-3z"/><path d="M12 20v-5"/></svg>
+        </span>
+        <h3 class="mt-5 text-lg font-bold text-navy-950">Eco-Friendly Technology</h3>
+        <p class="mt-2.5 text-sm leading-relaxed text-slate-600">
+          Lithium packs contain no cadmium and support cleaner renewable integration. We operate a
+          take-back and end-of-life recycling programme for used battery packs.
+        </p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PRODUCTS
+============================================================ -->
+<section id="products" class="relative bg-white py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-volt-600">Our Products</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl">
+        Lithium battery packs for every application
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-600">
+        Standard platforms and fully custom configurations — from compact portable units to
+        high-voltage industrial packs. All specifications below are illustrative demo values.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-7 md:grid-cols-2 lg:grid-cols-3">
+
+      <!-- Product 1 -->
+      <article class="reveal group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300">
+        <div class="relative h-36 bg-gradient-to-br from-navy-900 to-navy-800 p-6">
+          <div class="absolute inset-0 grid-lines opacity-40" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-volt-500 text-navy-950">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm14 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M3 17V9l2-4h9l3 5h4v7"/></svg>
+            </span>
+            <span class="w-fit rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-volt-300">EV Series</span>
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <h3 class="text-lg font-bold text-navy-950">EV Lithium Battery Packs</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            High-voltage traction packs for electric two-wheelers, three-wheelers and light electric vehicles.
+          </p>
+          <dl class="mt-5 flex-1 space-y-2.5 text-sm">
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Voltage</dt><dd class="font-bold text-navy-900">72 V</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Capacity</dt><dd class="font-bold text-navy-900">100 Ah</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Energy</dt><dd class="font-bold text-navy-900">7.2 kWh</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Cycle Life</dt><dd class="font-bold text-navy-900">≈3,000 cycles</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Warranty</dt><dd class="font-bold text-navy-900">3 years</dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Application</dt><dd class="text-right font-bold text-navy-900">EV &amp; e-mobility</dd></div>
+          </dl>
+          <a href="#contact" class="mt-6 inline-flex items-center justify-center rounded-xl bg-navy-950 px-5 py-3 text-sm font-bold text-white transition duration-300 hover:bg-volt-500 hover:text-navy-950">
+            Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <!-- Product 2 -->
+      <article class="reveal group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.06s">
+        <div class="relative h-36 bg-gradient-to-br from-navy-900 to-navy-800 p-6">
+          <div class="absolute inset-0 grid-lines opacity-40" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-volt-500 text-navy-950">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+            </span>
+            <span class="w-fit rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-volt-300">Solar Series</span>
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <h3 class="text-lg font-bold text-navy-950">Solar Energy Storage Batteries</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Deep-cycle LiFePO₄ storage for rooftop solar, hybrid inverters and off-grid systems.
+          </p>
+          <dl class="mt-5 flex-1 space-y-2.5 text-sm">
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Voltage</dt><dd class="font-bold text-navy-900">51.2 V</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Capacity</dt><dd class="font-bold text-navy-900">200 Ah</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Energy</dt><dd class="font-bold text-navy-900">10.24 kWh</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Cycle Life</dt><dd class="font-bold text-navy-900">≈6,000 cycles</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Warranty</dt><dd class="font-bold text-navy-900">5 years</dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Application</dt><dd class="text-right font-bold text-navy-900">Solar &amp; hybrid</dd></div>
+          </dl>
+          <a href="#contact" class="mt-6 inline-flex items-center justify-center rounded-xl bg-navy-950 px-5 py-3 text-sm font-bold text-white transition duration-300 hover:bg-volt-500 hover:text-navy-950">
+            Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <!-- Product 3 -->
+      <article class="reveal group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.12s">
+        <div class="relative h-36 bg-gradient-to-br from-navy-900 to-navy-800 p-6">
+          <div class="absolute inset-0 grid-lines opacity-40" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-volt-500 text-navy-950">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg>
+            </span>
+            <span class="w-fit rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-volt-300">Residential</span>
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <h3 class="text-lg font-bold text-navy-950">Home Energy Storage</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Wall-mount or rack-mount battery banks for residential backup and self-consumption.
+          </p>
+          <dl class="mt-5 flex-1 space-y-2.5 text-sm">
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Voltage</dt><dd class="font-bold text-navy-900">51.2 V</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Capacity</dt><dd class="font-bold text-navy-900">100 Ah</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Energy</dt><dd class="font-bold text-navy-900">5.12 kWh</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Cycle Life</dt><dd class="font-bold text-navy-900">≈6,000 cycles</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Warranty</dt><dd class="font-bold text-navy-900">5 years</dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Application</dt><dd class="text-right font-bold text-navy-900">Home backup</dd></div>
+          </dl>
+          <a href="#contact" class="mt-6 inline-flex items-center justify-center rounded-xl bg-navy-950 px-5 py-3 text-sm font-bold text-white transition duration-300 hover:bg-volt-500 hover:text-navy-950">
+            Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <!-- Product 4 -->
+      <article class="reveal group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.06s">
+        <div class="relative h-36 bg-gradient-to-br from-navy-900 to-navy-800 p-6">
+          <div class="absolute inset-0 grid-lines opacity-40" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-volt-500 text-navy-950">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V8l5-3v16"/><path d="M14 21V11h5v10"/><path d="M8 10h.01M8 14h.01M17 15h.01"/></svg>
+            </span>
+            <span class="w-fit rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-volt-300">Industrial</span>
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <h3 class="text-lg font-bold text-navy-950">Industrial Battery Packs</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Rugged, high-capacity packs for forklifts, AGVs, mining equipment and heavy machinery.
+          </p>
+          <dl class="mt-5 flex-1 space-y-2.5 text-sm">
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Voltage</dt><dd class="font-bold text-navy-900">96 V</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Capacity</dt><dd class="font-bold text-navy-900">300 Ah</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Energy</dt><dd class="font-bold text-navy-900">28.8 kWh</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Cycle Life</dt><dd class="font-bold text-navy-900">≈4,000 cycles</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Warranty</dt><dd class="font-bold text-navy-900">3 years</dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Application</dt><dd class="text-right font-bold text-navy-900">Heavy equipment</dd></div>
+          </dl>
+          <a href="#contact" class="mt-6 inline-flex items-center justify-center rounded-xl bg-navy-950 px-5 py-3 text-sm font-bold text-white transition duration-300 hover:bg-volt-500 hover:text-navy-950">
+            Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <!-- Product 5 -->
+      <article class="reveal group flex flex-col overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.12s">
+        <div class="relative h-36 bg-gradient-to-br from-navy-900 to-navy-800 p-6">
+          <div class="absolute inset-0 grid-lines opacity-40" aria-hidden="true"></div>
+          <div class="relative flex h-full flex-col justify-between">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-volt-500 text-navy-950">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="16" height="10" rx="2"/><path d="M21 10v4"/><path d="M6 10v4M10 10v4"/></svg>
+            </span>
+            <span class="w-fit rounded-full bg-white/10 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-volt-300">Portable</span>
+          </div>
+        </div>
+        <div class="flex flex-1 flex-col p-6">
+          <h3 class="text-lg font-bold text-navy-950">Portable Power Stations</h3>
+          <p class="mt-2 text-sm leading-relaxed text-slate-600">
+            Compact lithium power units for outdoor work, camping, field service and emergency backup.
+          </p>
+          <dl class="mt-5 flex-1 space-y-2.5 text-sm">
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Voltage</dt><dd class="font-bold text-navy-900">12.8 V</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Capacity</dt><dd class="font-bold text-navy-900">100 Ah</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Energy</dt><dd class="font-bold text-navy-900">1.28 kWh</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Cycle Life</dt><dd class="font-bold text-navy-900">≈2,000 cycles</dd></div>
+            <div class="flex justify-between gap-3 border-b border-slate-100 pb-2.5"><dt class="text-slate-500">Warranty</dt><dd class="font-bold text-navy-900">2 years</dd></div>
+            <div class="flex justify-between gap-3"><dt class="text-slate-500">Application</dt><dd class="text-right font-bold text-navy-900">Portable / field</dd></div>
+          </dl>
+          <a href="#contact" class="mt-6 inline-flex items-center justify-center rounded-xl bg-navy-950 px-5 py-3 text-sm font-bold text-white transition duration-300 hover:bg-volt-500 hover:text-navy-950">
+            Request Pricing
+          </a>
+        </div>
+      </article>
+
+      <!-- Custom CTA card -->
+      <article class="reveal flex flex-col justify-center rounded-3xl border border-dashed border-volt-400 bg-volt-50 p-8 text-center" style="transition-delay:.18s">
+        <span class="mx-auto grid h-12 w-12 place-items-center rounded-2xl bg-volt-500 text-navy-950">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+        </span>
+        <h3 class="mt-5 text-lg font-bold text-navy-950">Need a custom pack?</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">
+          Share your voltage, capacity, dimensions and enclosure requirements — our engineering team
+          will propose a suitable configuration.
+        </p>
+        <a href="#contact" class="mt-6 inline-flex items-center justify-center rounded-xl bg-navy-950 px-5 py-3 text-sm font-bold text-white transition duration-300 hover:bg-volt-600">
+          Talk to Engineering
+        </a>
+      </article>
+
+    </div>
+
+    <!-- Comparison table -->
+    <div class="reveal mt-16">
+      <h3 class="text-xl font-extrabold tracking-tight text-navy-950 sm:text-2xl">Battery specification comparison</h3>
+      <p class="mt-2 text-sm text-slate-600">Illustrative demo specifications. Final values are confirmed per project configuration.</p>
+
+      <div class="mt-6 overflow-x-auto rounded-2xl border border-slate-200 shadow-card">
+        <table class="w-full min-w-[760px] border-collapse text-left text-sm">
+          <caption class="sr-only">Comparison of LithoPower Energy lithium battery product specifications</caption>
+          <thead>
+            <tr class="bg-navy-950 text-white">
+              <th scope="col" class="px-5 py-4 font-bold">Product</th>
+              <th scope="col" class="px-5 py-4 font-bold">Voltage</th>
+              <th scope="col" class="px-5 py-4 font-bold">Capacity</th>
+              <th scope="col" class="px-5 py-4 font-bold">Energy</th>
+              <th scope="col" class="px-5 py-4 font-bold">Cycle Life</th>
+              <th scope="col" class="px-5 py-4 font-bold">Warranty</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 bg-white">
+            <tr class="transition hover:bg-volt-50">
+              <th scope="row" class="px-5 py-4 font-semibold text-navy-950">EV Battery Pack</th>
+              <td class="px-5 py-4 text-slate-600">72 V</td>
+              <td class="px-5 py-4 text-slate-600">100 Ah</td>
+              <td class="px-5 py-4 text-slate-600">7.2 kWh</td>
+              <td class="px-5 py-4 text-slate-600">≈3,000</td>
+              <td class="px-5 py-4 text-slate-600">3 years</td>
+            </tr>
+            <tr class="transition hover:bg-volt-50">
+              <th scope="row" class="px-5 py-4 font-semibold text-navy-950">Solar Storage</th>
+              <td class="px-5 py-4 text-slate-600">51.2 V</td>
+              <td class="px-5 py-4 text-slate-600">200 Ah</td>
+              <td class="px-5 py-4 text-slate-600">10.24 kWh</td>
+              <td class="px-5 py-4 text-slate-600">≈6,000</td>
+              <td class="px-5 py-4 text-slate-600">5 years</td>
+            </tr>
+            <tr class="transition hover:bg-volt-50">
+              <th scope="row" class="px-5 py-4 font-semibold text-navy-950">Home Storage</th>
+              <td class="px-5 py-4 text-slate-600">51.2 V</td>
+              <td class="px-5 py-4 text-slate-600">100 Ah</td>
+              <td class="px-5 py-4 text-slate-600">5.12 kWh</td>
+              <td class="px-5 py-4 text-slate-600">≈6,000</td>
+              <td class="px-5 py-4 text-slate-600">5 years</td>
+            </tr>
+            <tr class="transition hover:bg-volt-50">
+              <th scope="row" class="px-5 py-4 font-semibold text-navy-950">Industrial Pack</th>
+              <td class="px-5 py-4 text-slate-600">96 V</td>
+              <td class="px-5 py-4 text-slate-600">300 Ah</td>
+              <td class="px-5 py-4 text-slate-600">28.8 kWh</td>
+              <td class="px-5 py-4 text-slate-600">≈4,000</td>
+              <td class="px-5 py-4 text-slate-600">3 years</td>
+            </tr>
+            <tr class="transition hover:bg-volt-50">
+              <th scope="row" class="px-5 py-4 font-semibold text-navy-950">Portable Station</th>
+              <td class="px-5 py-4 text-slate-600">12.8 V</td>
+              <td class="px-5 py-4 text-slate-600">100 Ah</td>
+              <td class="px-5 py-4 text-slate-600">1.28 kWh</td>
+              <td class="px-5 py-4 text-slate-600">≈2,000</td>
+              <td class="px-5 py-4 text-slate-600">2 years</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     TECHNOLOGY
+============================================================ -->
+<section id="technology" class="relative overflow-hidden bg-navy-950 py-20 lg:py-28">
+  <div class="absolute inset-0 grid-lines opacity-60" aria-hidden="true"></div>
+  <div class="absolute inset-0 radial-volt opacity-70" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16">
+
+      <div class="reveal lg:sticky lg:top-28 lg:self-start">
+        <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-volt-400">Battery Technology</span>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+          From cell to complete battery system
+        </h2>
+        <p class="mt-5 text-base leading-relaxed text-slate-300">
+          Every LithoPower pack is engineered as a layered system. Each level adds protection,
+          structure and intelligence — so the finished pack performs predictably in real conditions.
+        </p>
+
+        <div class="mt-9 space-y-3">
+          <div class="flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-volt-500/15 text-xs font-extrabold text-volt-300">01</span>
+            <div>
+              <p class="text-sm font-bold text-white">Cell</p>
+              <p class="text-xs text-slate-400">Individual electrochemical unit</p>
+            </div>
+          </div>
+          <div class="ml-5 flex items-center gap-4 rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-volt-500/15 text-xs font-extrabold text-volt-300">02</span>
+            <div>
+              <p class="text-sm font-bold text-white">Module</p>
+              <p class="text-xs text-slate-400">Cells grouped with interconnects</p>
+            </div>
+          </div>
+          <div class="ml-10 flex items-center gap-4 rounded-2xl border border-volt-500/30 bg-volt-500/[0.08] p-4">
+            <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-volt-500 text-xs font-extrabold text-navy-950">03</span>
+            <div>
+              <p class="text-sm font-bold text-white">Battery Pack + BMS</p>
+              <p class="text-xs text-volt-300">Managed, protected, ready to deploy</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="space-y-3" id="techAccordion">
+
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition hover:border-volt-500/40">
+            <h3>
+              <button type="button" class="acc-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-white transition" aria-expanded="true" aria-controls="tech-1">
+                <span class="flex items-center gap-3">
+                  <svg class="h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="9"/></svg>
+                  Lithium-ion Chemistry
+                </span>
+                <svg class="acc-icon h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div id="tech-1" class="acc-panel">
+              <p class="px-6 pb-6 text-sm leading-relaxed text-slate-300">
+                We work with proven lithium-ion chemistries including LiFePO₄ (lithium iron phosphate)
+                for maximum cycle life and thermal stability, and NMC (nickel manganese cobalt) where
+                higher energy density is the priority. Chemistry selection is matched to your duty
+                cycle, temperature range and space constraints.
+              </p>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition hover:border-volt-500/40">
+            <h3>
+              <button type="button" class="acc-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-white transition" aria-expanded="false" aria-controls="tech-2">
+                <span class="flex items-center gap-3">
+                  <svg class="h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="3"/><path d="M9 7h6"/></svg>
+                  Battery Cells
+                </span>
+                <svg class="acc-icon h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div id="tech-2" class="acc-panel">
+              <p class="px-6 pb-6 text-sm leading-relaxed text-slate-300">
+                Cells are the core building block. We source from qualified manufacturers and screen
+                incoming cells for capacity, internal resistance and self-discharge, so only matched
+                cells are assembled into the same module. This grading step is critical to balanced,
+                long-lasting packs.
+              </p>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition hover:border-volt-500/40">
+            <h3>
+              <button type="button" class="acc-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-white transition" aria-expanded="false" aria-controls="tech-3">
+                <span class="flex items-center gap-3">
+                  <svg class="h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="6" width="7" height="12" rx="1.5"/><rect x="14" y="6" width="7" height="12" rx="1.5"/></svg>
+                  Battery Modules
+                </span>
+                <svg class="acc-icon h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div id="tech-3" class="acc-panel">
+              <p class="px-6 pb-6 text-sm leading-relaxed text-slate-300">
+                Cells are grouped into modules with spot-welded or laser-welded busbars, insulation
+                barriers and structural framing. Modules are the serviceable unit — if a module
+                degrades, it can be replaced without discarding the entire pack.
+              </p>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition hover:border-volt-500/40">
+            <h3>
+              <button type="button" class="acc-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-white transition" aria-expanded="false" aria-controls="tech-4">
+                <span class="flex items-center gap-3">
+                  <svg class="h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="7" width="17" height="10" rx="2.5"/><path d="M22 11v2"/></svg>
+                  Battery Packs
+                </span>
+                <svg class="acc-icon h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div id="tech-4" class="acc-panel">
+              <p class="px-6 pb-6 text-sm leading-relaxed text-slate-300">
+                Modules are assembled into a finished pack with an enclosure rated to the
+                installation environment, main contactors, fusing, service disconnects, communication
+                interfaces and mounting points. Enclosure design accounts for IP rating, vibration and
+                impact requirements.
+              </p>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition hover:border-volt-500/40">
+            <h3>
+              <button type="button" class="acc-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-white transition" aria-expanded="false" aria-controls="tech-5">
+                <span class="flex items-center gap-3">
+                  <svg class="h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+                  BMS — Battery Management System
+                </span>
+                <svg class="acc-icon h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div id="tech-5" class="acc-panel">
+              <p class="px-6 pb-6 text-sm leading-relaxed text-slate-300">
+                The BMS is the brain of the pack. It monitors individual cell voltages, pack current
+                and temperature, performs cell balancing, calculates state of charge and state of
+                health, and enforces safe operating limits. Communication options include CAN, RS485
+                and UART for integration with inverters, vehicles and monitoring platforms.
+              </p>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition hover:border-volt-500/40">
+            <h3>
+              <button type="button" class="acc-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-white transition" aria-expanded="false" aria-controls="tech-6">
+                <span class="flex items-center gap-3">
+                  <svg class="h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v3M12 18v3M3 12h3M18 12h3"/><circle cx="12" cy="12" r="4"/><path d="M5.6 5.6l2.1 2.1M16.3 16.3l2.1 2.1M18.4 5.6l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg>
+                  Thermal Management
+                </span>
+                <svg class="acc-icon h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div id="tech-6" class="acc-panel">
+              <p class="px-6 pb-6 text-sm leading-relaxed text-slate-300">
+                Temperature directly affects performance and service life. Packs can be specified with
+                natural convection, forced-air cooling or liquid cooling depending on the power
+                profile. Temperature sensors placed across the pack feed the BMS, which derates or
+                disconnects the load if limits are approached.
+              </p>
+            </div>
+          </div>
+
+          <div class="overflow-hidden rounded-2xl border border-white/10 bg-white/[0.035] backdrop-blur-sm transition hover:border-volt-500/40">
+            <h3>
+              <button type="button" class="acc-btn flex w-full items-center justify-between gap-4 px-6 py-5 text-left text-base font-bold text-white transition" aria-expanded="false" aria-controls="tech-7">
+                <span class="flex items-center gap-3">
+                  <svg class="h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+                  Charging System
+                </span>
+                <svg class="acc-icon h-5 w-5 shrink-0 text-volt-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 5v14M5 12h14"/></svg>
+              </button>
+            </h3>
+            <div id="tech-7" class="acc-panel">
+              <p class="px-6 pb-6 text-sm leading-relaxed text-slate-300">
+                Lithium packs require a charger matched to the chemistry and voltage. Charging follows
+                a constant-current / constant-voltage profile, with the BMS controlling the final
+                balance stage. Using an incompatible or unregulated charger can reduce life and is not
+                covered under warranty.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     APPLICATIONS
+============================================================ -->
+<section id="applications" class="bg-slate-50 py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-volt-600">Applications</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl">
+        Where our batteries go to work
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-600">
+        From a single scooter pack to a multi-megawatt industrial installation, our platforms scale
+        to fit the application.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-50 text-volt-600 transition group-hover:bg-volt-500 group-hover:text-white">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 17h14M5 17a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm14 0a2 2 0 1 0 4 0 2 2 0 0 0-4 0z"/><path d="M3 17V9l2-4h9l3 5h4v7"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-navy-950">Electric Vehicles</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Traction packs for light EVs, LCVs and retrofit conversions.</p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.05s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-50 text-volt-600 transition group-hover:bg-volt-500 group-hover:text-white">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="5.5" cy="17.5" r="3.5"/><circle cx="18.5" cy="17.5" r="3.5"/><path d="M5.5 17.5 9 8h5l2 5M9 8h9"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-navy-950">Electric Scooters</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Swappable and fixed packs for two- and three-wheelers.</p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.1s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-50 text-volt-600 transition group-hover:bg-volt-500 group-hover:text-white">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-navy-950">Solar Energy</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Day-to-night storage for rooftop and hybrid solar systems.</p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.15s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-50 text-volt-600 transition group-hover:bg-volt-500 group-hover:text-white">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="14" rx="2"/><path d="M8 21h8M12 18v3"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-navy-950">UPS Systems</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Fast-transfer backup for servers, clinics and retail.</p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.05s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-50 text-volt-600 transition group-hover:bg-volt-500 group-hover:text-white">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21h18"/><path d="M5 21V8l5-3v16"/><path d="M14 21V11h5v10"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-navy-950">Industrial Equipment</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Forklifts, AGVs, floor scrubbers and warehouse machinery.</p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.1s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-50 text-volt-600 transition group-hover:bg-volt-500 group-hover:text-white">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v18"/><circle cx="12" cy="6" r="2"/><path d="M8 10a4 4 0 0 0 8 0M6 21l6-6 6 6"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-navy-950">Telecom</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Reliable backup for base stations and remote sites.</p>
+      </article>
+
+      <article class="reveal group rounded-3xl border border-slate-200 bg-white p-6 shadow-card transition duration-300 hover:-translate-y-1.5 hover:border-volt-300" style="transition-delay:.15s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-50 text-volt-600 transition group-hover:bg-volt-500 group-hover:text-white">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-navy-950">Home Energy Storage</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-600">Independence from outages and smarter solar usage.</p>
+      </article>
+
+      <article class="reveal flex flex-col justify-center rounded-3xl border border-navy-950 bg-navy-950 p-6 text-center shadow-card" style="transition-delay:.2s">
+        <h3 class="text-base font-bold text-white">Not listed?</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">Tell us your application and we'll advise on a suitable platform.</p>
+        <a href="#contact" class="mt-4 inline-flex items-center justify-center rounded-xl bg-volt-500 px-4 py-2.5 text-sm font-bold text-navy-950 transition hover:bg-volt-400">Ask an Engineer</a>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     PERFORMANCE DASHBOARD
+============================================================ -->
+<section id="performance" class="bg-white py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-volt-600">Battery Performance</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl">
+        Performance at a glance
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-600">
+        Indicative performance envelope across our standard platforms. Values vary with chemistry,
+        configuration, temperature and load profile.
+      </p>
+    </div>
+
+    <div class="reveal mt-14 overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-card">
+      <div class="grid gap-0 lg:grid-cols-[1.15fr_0.85fr]">
+
+        <div class="p-7 sm:p-10">
+          <h3 class="text-lg font-bold text-navy-950">Key performance indicators</h3>
+
+          <div class="mt-8 space-y-7">
+
+            <div>
+              <div class="flex items-end justify-between">
+                <p class="text-sm font-semibold text-navy-900">Energy Density</p>
+                <p class="text-sm font-extrabold text-volt-600"><span class="counter" data-count="210">0</span> Wh/kg</p>
+              </div>
+              <div class="mt-2.5 h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
+                <div class="bar-fill h-full rounded-full bg-gradient-to-r from-volt-600 to-volt-400" data-bar="84"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-end justify-between">
+                <p class="text-sm font-semibold text-navy-900">Cycle Life (LiFePO₄)</p>
+                <p class="text-sm font-extrabold text-volt-600"><span class="counter" data-count="6000">0</span> cycles</p>
+              </div>
+              <div class="mt-2.5 h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
+                <div class="bar-fill h-full rounded-full bg-gradient-to-r from-volt-600 to-volt-400" data-bar="80"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-end justify-between">
+                <p class="text-sm font-semibold text-navy-900">Charging Efficiency</p>
+                <p class="text-sm font-extrabold text-volt-600"><span class="counter" data-count="96">0</span> %</p>
+              </div>
+              <div class="mt-2.5 h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
+                <div class="bar-fill h-full rounded-full bg-gradient-to-r from-volt-600 to-volt-400" data-bar="96"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-end justify-between">
+                <p class="text-sm font-semibold text-navy-900">Operating Temperature Window</p>
+                <p class="text-sm font-extrabold text-volt-600">−20 °C to 60 °C</p>
+              </div>
+              <div class="mt-2.5 h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
+                <div class="bar-fill h-full rounded-full bg-gradient-to-r from-volt-600 to-volt-400" data-bar="72"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex items-end justify-between">
+                <p class="text-sm font-semibold text-navy-900">Capacity Range</p>
+                <p class="text-sm font-extrabold text-volt-600">1.28 – 28.8 kWh</p>
+              </div>
+              <div class="mt-2.5 h-2.5 w-full overflow-hidden rounded-full bg-slate-200">
+                <div class="bar-fill h-full rounded-full bg-gradient-to-r from-volt-600 to-volt-400" data-bar="88"></div>
+              </div>
+            </div>
+
+          </div>
+
+          <p class="mt-8 text-xs leading-relaxed text-slate-500">
+            Bars are normalised for visual comparison only. All figures are illustrative demo values —
+            request a datasheet for confirmed project specifications.
+          </p>
+        </div>
+
+        <div class="relative overflow-hidden bg-navy-950 p-7 sm:p-10">
+          <div class="absolute inset-0 grid-lines opacity-50" aria-hidden="true"></div>
+          <div class="absolute -right-16 -top-16 h-56 w-56 rounded-full bg-volt-500/15 blur-3xl" aria-hidden="true"></div>
+
+          <div class="relative">
+            <h3 class="text-lg font-bold text-white">Why it matters</h3>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">
+              Higher energy density means a lighter vehicle or a smaller cabinet. Longer cycle life
+              means fewer replacements. Higher efficiency means more of the energy you pay for
+              actually reaches the load.
+            </p>
+
+            <dl class="mt-8 space-y-4">
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-volt-400">Weight saved</dt>
+                <dd class="mt-1 text-sm font-bold text-white">Up to ~60–70% lighter than equivalent lead-acid banks*</dd>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-volt-400">Usable capacity</dt>
+                <dd class="mt-1 text-sm font-bold text-white">Deeper discharge without damaging the cells</dd>
+              </div>
+              <div class="rounded-2xl border border-white/10 bg-white/[0.04] p-4">
+                <dt class="text-xs font-semibold uppercase tracking-wider text-volt-400">Monitoring</dt>
+                <dd class="mt-1 text-sm font-bold text-white">Live data over CAN / RS485 for fleet visibility</dd>
+              </div>
+            </dl>
+
+            <p class="mt-6 text-[11px] leading-relaxed text-slate-500">*Typical comparison, varies by configuration.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     SAFETY
+============================================================ -->
+<section id="safety" class="relative overflow-hidden bg-navy-950 py-20 lg:py-28">
+  <div class="absolute inset-0 grid-lines opacity-60" aria-hidden="true"></div>
+  <div class="absolute inset-0 radial-volt opacity-60" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-volt-400">Safety &amp; Protection</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+        Multiple layers of protection, engineered in
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-300">
+        Lithium batteries are safe when designed, installed and used correctly. Our packs combine
+        electronic, thermal and mechanical safeguards. No battery system can be described as
+        absolutely risk-free — correct installation and use remain essential.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+      <article class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-volt-500/40">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-500/15 text-volt-400">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/><path d="M9 2v3M15 2v3M9 19v3M15 19v3M2 9h3M2 15h3M19 9h3M19 15h3"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-white">Battery Management System</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">
+          Continuous monitoring of cell voltage, current, temperature and state of charge, with
+          automatic derating or shutdown when limits are exceeded.
+        </p>
+      </article>
+
+      <article class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-volt-500/40" style="transition-delay:.05s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-500/15 text-volt-400">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v6c0 5-3.5 7.6-8 8-4.5-.4-8-3-8-8V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-white">Overcharge Protection</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">
+          Charge is cut off at the configured maximum cell voltage, preventing excessive lithium
+          plating and the heat build-up associated with overcharging.
+        </p>
+      </article>
+
+      <article class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-volt-500/40" style="transition-delay:.1s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-500/15 text-volt-400">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12h4l2-5 3 10 2-5h7"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-white">Over-discharge Protection</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">
+          The BMS disconnects the load before cell voltage drops into a range that would permanently
+          reduce capacity and cycle life.
+        </p>
+      </article>
+
+      <article class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-volt-500/40" style="transition-delay:.05s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-500/15 text-volt-400">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13 2 4 14h6l-1 8 9-12h-6l1-8z"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-white">Short-Circuit Protection</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">
+          Fusing, contactors and electronic current limiting respond within milliseconds to isolate
+          fault conditions and limit fault energy.
+        </p>
+      </article>
+
+      <article class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-volt-500/40" style="transition-delay:.1s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-500/15 text-volt-400">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 14.8V5a2 2 0 1 0-4 0v9.8a4 4 0 1 0 4 0z"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-white">Temperature Monitoring</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">
+          Multiple NTC sensors across the pack feed real-time temperature data to the BMS, which
+          reduces current or stops operation if thresholds are reached.
+        </p>
+      </article>
+
+      <article class="reveal rounded-3xl border border-white/10 bg-white/[0.04] p-7 backdrop-blur-sm transition duration-300 hover:-translate-y-1.5 hover:border-volt-500/40" style="transition-delay:.15s">
+        <span class="grid h-12 w-12 place-items-center rounded-2xl bg-volt-500/15 text-volt-400">
+          <svg class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h6v10H4zM14 7h6v10h-6z"/><path d="M10 12h4"/></svg>
+        </span>
+        <h3 class="mt-5 text-base font-bold text-white">Cell Balancing</h3>
+        <p class="mt-2 text-sm leading-relaxed text-slate-300">
+          Active or passive balancing keeps cells at consistent voltage, maximising usable capacity
+          and preventing weak cells from limiting the whole pack.
+        </p>
+      </article>
+
+    </div>
+
+    <div class="reveal mt-12 rounded-2xl border border-volt-500/25 bg-volt-500/[0.07] p-6 sm:p-7">
+      <div class="flex flex-col gap-4 sm:flex-row sm:items-start">
+        <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-volt-500 text-navy-950">
+          <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true"><path d="M12 9v4M12 17h.01"/><circle cx="12" cy="12" r="9"/></svg>
+        </span>
+        <p class="text-sm leading-relaxed text-slate-200">
+          <strong class="font-bold text-white">Important note:</strong> Lithium battery systems must
+          be installed and maintained by qualified personnel using compatible chargers and inverters.
+          Always follow the supplied installation manual and local regulations. Specifications on
+          this website are illustrative demo values and do not constitute a performance guarantee.
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+<!-- ============================================================
+     ABOUT
+============================================================ -->
+<section id="about" class="bg-slate-50 py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div class="grid items-start gap-14 lg:grid-cols-2 lg:gap-16">
+
+      <div class="reveal">
+        <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-volt-600">About LithoPower Energy</span>
+        <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl">
+          Engineering reliable energy storage, one pack at a time
+        </h2>
+
+        <p class="mt-6 text-base leading-relaxed text-slate-600">
+          LithoPower Energy designs and manufactures lithium-ion battery packs and energy storage
+          systems for electric mobility, renewable energy and industrial customers. Our team combines
+          cell-level expertise with system-level engineering — pairing the right chemistry with a
+          properly specified BMS, thermal design and enclosure.
+        </p>
+        <p class="mt-4 text-base leading-relaxed text-slate-600">
+          We work closely with integrators, OEMs and installers from the first specification through
+          to after-sales support. Every pack is documented, traceable and tested against its defined
+          acceptance criteria before it leaves the facility.
+        </p>
+
+        <div class="mt-10 grid gap-6 sm:grid-cols-2">
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-navy-950 text-volt-400">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1"/></svg>
+            </span>
+            <h3 class="mt-4 text-base font-bold text-navy-950">Our Mission</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              To make dependable, well-engineered lithium energy storage accessible to businesses and
+              households transitioning to cleaner power.
+            </p>
+          </div>
+
+          <div class="rounded-2xl border border-slate-200 bg-white p-6 shadow-card">
+            <span class="grid h-11 w-11 place-items-center rounded-xl bg-navy-950 text-volt-400">
+              <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7z"/><circle cx="12" cy="12" r="3"/></svg>
+            </span>
+            <h3 class="mt-4 text-base font-bold text-navy-950">Our Vision</h3>
+            <p class="mt-2 text-sm leading-relaxed text-slate-600">
+              A world where electric mobility and renewable energy are backed by storage systems that
+              last, perform predictably and are responsibly recycled.
+            </p>
+          </div>
+        </div>
+
+        <div class="mt-6 rounded-2xl border border-volt-300 bg-volt-50 p-6">
+          <h3 class="flex items-center gap-2.5 text-base font-bold text-navy-950">
+            <svg class="h-5 w-5 text-volt-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l8 4v6c0 5-3.5 7.6-8 8-4.5-.4-8-3-8-8V7l8-4z"/><path d="M9 12l2 2 4-4"/></svg>
+            Quality-Focused Approach
+          </h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-slate-700">
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt-500"></span>Incoming cell screening and batch traceability</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt-500"></span>Defined assembly procedures and torque/weld controls</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt-500"></span>Functional, insulation and communication testing on every pack</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt-500"></span>Documented datasheets, test reports and installation manuals</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="reveal lg:sticky lg:top-28" style="transition-delay:.1s">
+        <div class="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-card">
+          <div class="relative bg-navy-950 p-8">
+            <div class="absolute inset-0 grid-lines opacity-50" aria-hidden="true"></div>
+            <div class="relative">
+              <p class="text-[11px] font-bold uppercase tracking-[0.2em] text-volt-400">At a glance</p>
+              <h3 class="mt-2 text-2xl font-extrabold text-white">Built on process, not promises</h3>
+            </div>
+          </div>
+
+          <dl class="grid grid-cols-2 divide-x divide-y divide-slate-100">
+            <div class="p-7 text-center">
+              <dd class="text-3xl font-extrabold text-navy-950"><span class="counter" data-count="15">0</span><span class="text-volt-600">+</span></dd>
+              <dt class="mt-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Pack Platforms</dt>
+            </div>
+            <div class="p-7 text-center">
+              <dd class="text-3xl font-extrabold text-navy-950"><span class="counter" data-count="48">0</span><span class="text-volt-600">h</span></dd>
+              <dt class="mt-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Quote Turnaround</dt>
+            </div>
+            <div class="p-7 text-center">
+              <dd class="text-3xl font-extrabold text-navy-950"><span class="counter" data-count="12">0</span></dd>
+              <dt class="mt-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Application Segments</dt>
+            </div>
+            <div class="p-7 text-center">
+              <dd class="text-3xl font-extrabold text-navy-950"><span class="counter" data-count="100">0</span><span class="text-volt-600">%</span></dd>
+              <dt class="mt-1.5 text-xs font-semibold uppercase tracking-wider text-slate-500">Packs Tested</dt>
+            </div>
+          </dl>
+
+          <div class="border-t border-slate-100 p-7">
+            <p class="text-xs leading-relaxed text-slate-500">
+              Figures describe our internal demo dataset and are provided for illustration only.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CALL TO ACTION
+============================================================ -->
+<section class="relative overflow-hidden bg-navy-950 py-20 lg:py-24">
+  <div class="absolute inset-0 grid-lines opacity-60" aria-hidden="true"></div>
+  <div class="absolute inset-0 radial-volt" aria-hidden="true"></div>
+
+  <div class="relative mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+    <div class="reveal">
+      <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-[2.75rem]">
+        Ready to Power Your Next Project?
+      </h2>
+      <p class="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-slate-300">
+        Tell us your voltage, capacity and application requirements. Our team will review your
+        specification and respond with a suitable configuration and indicative pricing.
+      </p>
+      <div class="mt-9 flex flex-col justify-center gap-3 sm:flex-row">
+        <a href="#contact" class="inline-flex items-center justify-center gap-2 rounded-xl bg-volt-500 px-7 py-3.5 text-sm font-bold text-navy-950 shadow-glow transition duration-300 hover:-translate-y-0.5 hover:bg-volt-400">
+          Request a Quote
+          <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#contact" class="inline-flex items-center justify-center rounded-xl border border-white/20 bg-white/5 px-7 py-3.5 text-sm font-bold text-white backdrop-blur transition duration-300 hover:-translate-y-0.5 hover:border-volt-400/60 hover:bg-white/10">
+          Contact Us
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================
+     CONTACT
+============================================================ -->
+<section id="contact" class="bg-white py-20 lg:py-28">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <div class="reveal mx-auto max-w-3xl text-center">
+      <span class="text-[11px] font-bold uppercase tracking-[0.22em] text-volt-600">Contact Us</span>
+      <h2 class="mt-3 text-3xl font-extrabold tracking-tight text-navy-950 sm:text-4xl">
+        Request a battery quotation
+      </h2>
+      <p class="mt-4 text-base leading-relaxed text-slate-600">
+        Complete the form and your inquiry opens directly in WhatsApp so our team can respond quickly.
+      </p>
+    </div>
+
+    <div class="mt-14 grid gap-8 lg:grid-cols-[0.85fr_1.15fr]">
+
+      <!-- Contact details -->
+      <div class="reveal space-y-5">
+        <div class="rounded-3xl border border-slate-200 bg-slate-50 p-7 shadow-card">
+          <h3 class="text-lg font-bold text-navy-950">Get in touch</h3>
+          <ul class="mt-6 space-y-5 text-sm">
+            <li class="flex gap-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-navy-950 text-volt-400">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 6h16v12H4z"/><path d="m4 7 8 6 8-6"/></svg>
+              </span>
+              <div>
+                <p class="font-bold text-navy-950">Email</p>
+                <a href="mailto:sales@lithopower.example" class="text-slate-600 transition hover:text-volt-600">sales@lithopower.example</a>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-volt-500 text-navy-950">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.4L2 22l4.7-1.6A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5 0a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5s.3-.4.4-.5.2-.3.3-.4 0-.4 0-.5-.5-1.3-.7-1.7-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.5 4 5.2 5.2 0 0 0 3.2.6 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/></svg>
+              </span>
+              <div>
+                <p class="font-bold text-navy-950">WhatsApp / Phone</p>
+                <a href="https://wa.me/916260434891" target="_blank" rel="noopener"
+                   class="text-slate-600 transition hover:text-volt-600">+91 62604 34891</a>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-navy-950 text-volt-400">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-5.5 7-11a7 7 0 1 0-14 0c0 5.5 7 11 7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+              </span>
+              <div>
+                <p class="font-bold text-navy-950">Factory &amp; Office</p>
+                <p class="text-slate-600">Plot 42, Industrial Estate,<br />Pune, Maharashtra, India</p>
+              </div>
+            </li>
+            <li class="flex gap-4">
+              <span class="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-navy-950 text-volt-400">
+                <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              </span>
+              <div>
+                <p class="font-bold text-navy-950">Working Hours</p>
+                <p class="text-slate-600">Mon – Sat, 9:30 AM – 6:30 PM IST</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <div class="rounded-3xl border border-volt-300 bg-volt-50 p-7">
+          <h3 class="text-base font-bold text-navy-950">Helpful details to include</h3>
+          <ul class="mt-4 space-y-2.5 text-sm text-slate-700">
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt-500"></span>Required voltage and capacity</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt-500"></span>Continuous and peak load</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt-500"></span>Space and weight limits</li>
+            <li class="flex gap-2.5"><span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-volt-500"></span>Expected daily duty cycle</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Form -->
+      <div class="reveal" style="transition-delay:.1s">
+        <div class="rounded-3xl border border-slate-200 bg-white p-7 shadow-card sm:p-9">
+
+          <div id="formSuccess" class="mb-6 hidden rounded-2xl border border-volt-300 bg-volt-50 p-5" role="status" aria-live="polite">
+            <p class="flex items-start gap-3 text-sm font-semibold text-volt-800">
+              <svg class="mt-0.5 h-5 w-5 shrink-0 text-volt-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="m8.5 12.5 2.5 2.5 4.5-5"/></svg>
+              <span>WhatsApp is opening with your inquiry pre-filled. Just tap <strong>Send</strong> to deliver it to our team.</span>
+            </p>
+          </div>
+
+          <form id="inquiryForm" novalidate>
+            <div class="grid gap-5 sm:grid-cols-2">
+
+              <div>
+                <label for="name" class="mb-2 block text-sm font-semibold text-navy-950">Name <span class="text-volt-600">*</span></label>
+                <input id="name" name="name" type="text" autocomplete="name" required
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-navy-950 placeholder-slate-400 transition focus:border-volt-500 focus:ring-2 focus:ring-volt-500/20"
+                  placeholder="Your full name" />
+                <p class="err mt-1.5 hidden text-xs font-semibold text-red-600">Please enter your name.</p>
+              </div>
+
+              <div>
+                <label for="email" class="mb-2 block text-sm font-semibold text-navy-950">Email <span class="text-volt-600">*</span></label>
+                <input id="email" name="email" type="email" autocomplete="email" required
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-navy-950 placeholder-slate-400 transition focus:border-volt-500 focus:ring-2 focus:ring-volt-500/20"
+                  placeholder="you@company.com" />
+                <p class="err mt-1.5 hidden text-xs font-semibold text-red-600">Please enter a valid email address.</p>
+              </div>
+
+              <div>
+                <label for="phone" class="mb-2 block text-sm font-semibold text-navy-950">Phone <span class="text-volt-600">*</span></label>
+                <input id="phone" name="phone" type="tel" autocomplete="tel" required
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-navy-950 placeholder-slate-400 transition focus:border-volt-500 focus:ring-2 focus:ring-volt-500/20"
+                  placeholder="+91 00000 00000" />
+                <p class="err mt-1.5 hidden text-xs font-semibold text-red-600">Please enter a valid phone number.</p>
+              </div>
+
+              <div>
+                <label for="company" class="mb-2 block text-sm font-semibold text-navy-950">Company</label>
+                <input id="company" name="company" type="text" autocomplete="organization"
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-navy-950 placeholder-slate-400 transition focus:border-volt-500 focus:ring-2 focus:ring-volt-500/20"
+                  placeholder="Company name (optional)" />
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="product" class="mb-2 block text-sm font-semibold text-navy-950">Product Required <span class="text-volt-600">*</span></label>
+                <select id="product" name="product" required
+                  class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-navy-950 transition focus:border-volt-500 focus:ring-2 focus:ring-volt-500/20">
+                  <option value="">Select a product category…</option>
+                  <option>EV Lithium Battery Packs</option>
+                  <option>Solar Energy Storage Batteries</option>
+                  <option>Home Energy Storage</option>
+                  <option>Industrial Battery Packs</option>
+                  <option>Portable Power Stations</option>
+                  <option>Custom Battery Pack</option>
+                </select>
+                <p class="err mt-1.5 hidden text-xs font-semibold text-red-600">Please select a product category.</p>
+              </div>
+
+              <div class="sm:col-span-2">
+                <label for="message" class="mb-2 block text-sm font-semibold text-navy-950">Message <span class="text-volt-600">*</span></label>
+                <textarea id="message" name="message" rows="5" required
+                  class="w-full resize-y rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-navy-950 placeholder-slate-400 transition focus:border-volt-500 focus:ring-2 focus:ring-volt-500/20"
+                  placeholder="Describe your voltage, capacity, application and quantity requirements…"></textarea>
+                <p class="err mt-1.5 hidden text-xs font-semibold text-red-600">Please tell us about your requirements.</p>
+              </div>
+
+            </div>
+
+            <button type="submit"
+              class="mt-7 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-navy-950 px-7 py-3.5 text-sm font-bold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-volt-500 hover:text-navy-950 sm:w-auto">
+              Submit Inquiry via WhatsApp
+              <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+
+            <p class="mt-4 text-xs leading-relaxed text-slate-500">
+              On submit, your inquiry opens directly in WhatsApp so our team can respond quickly.
+              No data is stored on this website.
+            </p>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+</main>
+
+
+<!-- ============================================================
+     FOOTER
+============================================================ -->
+<footer class="bg-navy-950 pt-16 pb-8">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+    <div class="grid gap-10 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+
+      <div>
+        <a href="#home" class="flex items-center gap-2.5">
+          <span class="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-volt-300 to-volt-600">
+            <svg class="h-5 w-5 text-navy-950" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 2 4 13.2h6.1L9.4 22 19 10.6h-6.2L13.5 2z"/></svg>
+          </span>
+          <span class="leading-tight">
+            <span class="block text-[15px] font-extrabold tracking-tight text-white">LithoPower</span>
+            <span class="block text-[10px] font-bold uppercase tracking-[0.24em] text-volt-400">Energy</span>
+          </span>
+        </a>
+        <p class="mt-5 max-w-sm text-sm leading-relaxed text-slate-400">
+          Lithium-ion battery packs and energy storage systems for electric mobility, solar power and
+          industrial applications.
+        </p>
+
+        <div class="mt-6 flex items-center gap-3">
+          <a href="#" aria-label="LinkedIn" class="grid h-9 w-9 place-items-center rounded-xl border border-white/10 text-slate-400 transition hover:border-volt-500/50 hover:bg-white/5 hover:text-volt-400">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3zM9 9h3.8v1.7h.05c.53-.95 1.83-1.95 3.77-1.95 4.03 0 4.78 2.5 4.78 5.76V21h-4v-5.6c0-1.34-.03-3.07-1.9-3.07-1.9 0-2.2 1.46-2.2 2.97V21H9z"/></svg>
+          </a>
+          <a href="#" aria-label="X (Twitter)" class="grid h-9 w-9 place-items-center rounded-xl border border-white/10 text-slate-400 transition hover:border-volt-500/50 hover:bg-white/5 hover:text-volt-400">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 3h3.2l-7 8 7.3 10h-5.6l-4.4-6-5 6H2.8l7.3-8.6L3 3h5.7l4.1 5.6L17.5 3zm-1.1 16h1.7L7.5 4.8H5.6L16.4 19z"/></svg>
+          </a>
+          <a href="#" aria-label="YouTube" class="grid h-9 w-9 place-items-center rounded-xl border border-white/10 text-slate-400 transition hover:border-volt-500/50 hover:bg-white/5 hover:text-volt-400">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.6-.46-5.3a2.8 2.8 0 0 0-1.97-2C18.86 4.2 12 4.2 12 4.2s-6.86 0-8.57.5a2.8 2.8 0 0 0-1.97 2C1 8.4 1 12 1 12s0 3.6.46 5.3a2.8 2.8 0 0 0 1.97 2c1.71.5 8.57.5 8.57.5s6.86 0 8.57-.5a2.8 2.8 0 0 0 1.97-2C23 15.6 23 12 23 12zM9.8 15.3V8.7l5.7 3.3-5.7 3.3z"/></svg>
+          </a>
+          <a href="#" aria-label="Instagram" class="grid h-9 w-9 place-items-center rounded-xl border border-white/10 text-slate-400 transition hover:border-volt-500/50 hover:bg-white/5 hover:text-volt-400">
+            <svg class="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <nav aria-label="Quick links">
+        <h2 class="text-sm font-bold uppercase tracking-wider text-white">Quick Links</h2>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li><a href="#home" class="text-slate-400 transition hover:text-volt-400">Home</a></li>
+          <li><a href="#about" class="text-slate-400 transition hover:text-volt-400">About</a></li>
+          <li><a href="#technology" class="text-slate-400 transition hover:text-volt-400">Technology</a></li>
+          <li><a href="#performance" class="text-slate-400 transition hover:text-volt-400">Performance</a></li>
+          <li><a href="#safety" class="text-slate-400 transition hover:text-volt-400">Safety</a></li>
+          <li><a href="#contact" class="text-slate-400 transition hover:text-volt-400">Contact</a></li>
+        </ul>
+      </nav>
+
+      <nav aria-label="Products">
+        <h2 class="text-sm font-bold uppercase tracking-wider text-white">Products</h2>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li><a href="#products" class="text-slate-400 transition hover:text-volt-400">EV Battery Packs</a></li>
+          <li><a href="#products" class="text-slate-400 transition hover:text-volt-400">Solar Storage</a></li>
+          <li><a href="#products" class="text-slate-400 transition hover:text-volt-400">Home Energy Storage</a></li>
+          <li><a href="#products" class="text-slate-400 transition hover:text-volt-400">Industrial Packs</a></li>
+          <li><a href="#products" class="text-slate-400 transition hover:text-volt-400">Portable Stations</a></li>
+          <li><a href="#contact" class="text-slate-400 transition hover:text-volt-400">Custom Packs</a></li>
+        </ul>
+      </nav>
+
+      <div>
+        <h2 class="text-sm font-bold uppercase tracking-wider text-white">Applications</h2>
+        <ul class="mt-5 space-y-3 text-sm">
+          <li><a href="#applications" class="text-slate-400 transition hover:text-volt-400">Electric Vehicles</a></li>
+          <li><a href="#applications" class="text-slate-400 transition hover:text-volt-400">Solar Energy</a></li>
+          <li><a href="#applications" class="text-slate-400 transition hover:text-volt-400">UPS Systems</a></li>
+          <li><a href="#applications" class="text-slate-400 transition hover:text-volt-400">Telecom</a></li>
+        </ul>
+
+        <h2 class="mt-7 text-sm font-bold uppercase tracking-wider text-white">Contact</h2>
+        <ul class="mt-5 space-y-3 text-sm text-slate-400">
+          <li><a href="mailto:sales@lithopower.example" class="transition hover:text-volt-400">sales@lithopower.example</a></li>
+          <li>
+            <a href="https://wa.me/916260434891" target="_blank" rel="noopener"
+               class="inline-flex items-center gap-2 transition hover:text-volt-400">
+              <svg class="h-4 w-4 text-volt-500" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.5 3.5A11 11 0 0 0 3.6 17.4L2 22l4.7-1.6A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5 0a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5s.3-.4.4-.5.2-.3.3-.4 0-.4 0-.5-.5-1.3-.7-1.7-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.5 4 5.2 5.2 0 0 0 3.2.6 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/></svg>
+              WhatsApp: +91 62604 34891
+            </a>
+          </li>
+          <li>Pune, Maharashtra, India</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="mt-12 border-t border-white/10 pt-7">
+      <p class="text-xs leading-relaxed text-slate-500">
+        <strong class="font-semibold text-slate-400">Disclaimer:</strong> All product specifications,
+        performance figures and certifications shown on this website are illustrative demo values for
+        presentation purposes. Actual specifications are confirmed per project and provided in the
+        official datasheet. Lithium battery systems must be installed, charged and maintained by
+        qualified personnel in accordance with the supplied documentation and applicable local
+        regulations.
+      </p>
+
+      <div class="mt-6 flex flex-col gap-3 text-xs text-slate-500 sm:flex-row sm:items-center sm:justify-between">
+        <p>&copy; <span id="year">2025</span> LithoPower Energy. All rights reserved.</p>
+        <ul class="flex flex-wrap gap-x-5 gap-y-2">
+          <li><a href="#" class="transition hover:text-volt-400">Privacy Policy</a></li>
+          <li><a href="#" class="transition hover:text-volt-400">Terms of Service</a></li>
+          <li><a href="#" class="transition hover:text-volt-400">Warranty Policy</a></li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</footer>
+
+
+<!-- Floating WhatsApp button -->
+<a href="https://wa.me/919516108075"
+   target="_blank" rel="noopener"
+   aria-label="Chat on WhatsApp"
+   class="fixed bottom-6 left-6 z-40 flex h-12 w-12 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg ring-1 ring-black/10 transition duration-300 hover:scale-110 hover:shadow-xl">
+  <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+    <path d="M20.5 3.5A11 11 0 0 0 3.6 17.4L2 22l4.7-1.6A11 11 0 1 0 20.5 3.5zM12 20a8 8 0 0 1-4.1-1.1l-.3-.2-2.8.9.9-2.7-.2-.3A8 8 0 1 1 12 20zm4.5-5.9c-.2-.1-1.4-.7-1.6-.8s-.4-.1-.5.1-.6.8-.7.9-.3.2-.5 0a6.5 6.5 0 0 1-1.9-1.2 7 7 0 0 1-1.3-1.7c-.1-.2 0-.4.1-.5s.3-.4.4-.5.2-.3.3-.4 0-.4 0-.5-.5-1.3-.7-1.7-.4-.4-.5-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.9 11.9 0 0 0 4.5 4 5.2 5.2 0 0 0 3.2.6 2.8 2.8 0 0 0 1.8-1.3 2.3 2.3 0 0 0 .2-1.3c-.1-.1-.2-.2-.4-.3z"/>
+  </svg>
+</a>
+
+<!-- Back to top -->
+<button id="toTop" type="button" aria-label="Back to top"
+  class="fixed bottom-6 right-6 z-40 hidden h-11 w-11 items-center justify-center rounded-xl bg-navy-950 text-volt-400 shadow-lg ring-1 ring-white/10 transition duration-300 hover:bg-volt-500 hover:text-navy-950">
+  <svg class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+</button>
+
+
+<script>
+(function () {
+  'use strict';
+
+  /* =========================================================
+     1. HEADER SCROLL STATE
+  ========================================================= */
+  const header = document.getElementById('siteHeader');
+  const toTop  = document.getElementById('toTop');
+
+  function onScroll() {
+    const y = window.scrollY;
+    if (y > 20) {
+      header.classList.add('bg-navy-950/95', 'shadow-lg', 'shadow-navy-950/40');
+      header.classList.remove('bg-navy-950/75');
+    } else {
+      header.classList.remove('bg-navy-950/95', 'shadow-lg', 'shadow-navy-950/40');
+      header.classList.add('bg-navy-950/75');
+    }
+    if (y > 600) {
+      toTop.classList.remove('hidden');
+    } else {
+      toTop.classList.add('hidden');
+    }
+    highlightNav(y);
+  }
+
+  /* =========================================================
+     2. MOBILE MENU
+  ========================================================= */
+  const menuBtn   = document.getElementById('menuBtn');
+  const mobileNav = document.getElementById('mobileMenu');
+  const iconOpen  = document.getElementById('iconOpen');
+  const iconClose = document.getElementById('iconClose');
+
+  function setMenu(open) {
+    mobileNav.classList.toggle('hidden', !open);
+    iconOpen.classList.toggle('hidden', open);
+    iconClose.classList.toggle('hidden', !open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
+  }
+
+  menuBtn.addEventListener('click', function () {
+    setMenu(mobileNav.classList.contains('hidden'));
+  });
+
+  document.querySelectorAll('.mobile-link').forEach(function (link) {
+    link.addEventListener('click', function () { setMenu(false); });
+  });
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') setMenu(false);
+  });
+
+  window.addEventListener('resize', function () {
+    if (window.innerWidth >= 1280) setMenu(false);
+  });
+
+  /* =========================================================
+     3. ACTIVE NAV HIGHLIGHTING
+  ========================================================= */
+  const navLinks = Array.prototype.slice.call(document.querySelectorAll('.nav-link'));
+  const sections = navLinks
+    .map(function (l) { return document.querySelector(l.getAttribute('href')); })
+    .filter(Boolean);
+
+  function highlightNav(y) {
+    let currentId = sections.length ? sections[0].id : null;
+    sections.forEach(function (sec) {
+      if (y >= sec.offsetTop - 140) currentId = sec.id;
+    });
+    navLinks.forEach(function (link) {
+      const active = link.getAttribute('href') === '#' + currentId;
+      link.classList.toggle('text-volt-400', active);
+      link.classList.toggle('bg-white/5', active);
+      link.classList.toggle('text-slate-300', !active);
+    });
+  }
+
+  /* =========================================================
+     4. HERO CELL GRID
+  ========================================================= */
+  const cellGrid = document.getElementById('cellGrid');
+  if (cellGrid) {
+    const TOTAL = 18;
+    for (let i = 0; i < TOTAL; i++) {
+      const cell = document.createElement('div');
+      cell.className = 'relative h-12 overflow-hidden rounded-lg bg-white/5 ring-1 ring-inset ring-white/10 sm:h-14';
+
+      const fill = document.createElement('div');
+      fill.className = 'cell-fill absolute inset-x-0 bottom-0 rounded-b-lg bg-gradient-to-t from-volt-600 to-volt-400';
+      fill.style.animationDelay = (i * 0.13).toFixed(2) + 's';
+
+      cell.appendChild(fill);
+      cellGrid.appendChild(cell);
+    }
+  }
+
+  /* =========================================================
+     5. SCROLL REVEAL
+  ========================================================= */
+  const revealEls = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    const revealObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          obs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+
+    revealEls.forEach(function (el) { revealObserver.observe(el); });
+  } else {
+    revealEls.forEach(function (el) { el.classList.add('is-visible'); });
+  }
+
+  /* =========================================================
+     6. COUNTERS + PERFORMANCE BARS
+  ========================================================= */
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function animateCounter(el) {
+    const target = parseFloat(el.dataset.count);
+    if (isNaN(target)) return;
+    if (reduceMotion) { el.textContent = target.toLocaleString(); return; }
+
+    const duration = 1600;
+    const start = performance.now();
+    const isDecimal = target % 1 !== 0;
+
+    function step(now) {
+      const p = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - p, 3);
+      const value = target * eased;
+      el.textContent = isDecimal
+        ? value.toFixed(1)
+        : Math.round(value).toLocaleString();
+      if (p < 1) requestAnimationFrame(step);
+      else el.textContent = isDecimal ? target.toFixed(1) : target.toLocaleString();
+    }
+    requestAnimationFrame(step);
+  }
+
+  function animateBar(el) {
+    const pct = el.dataset.bar;
+    requestAnimationFrame(function () { el.style.width = pct + '%'; });
+  }
+
+  const counters = document.querySelectorAll('.counter');
+  const bars = document.querySelectorAll('.bar-fill');
+
+  if ('IntersectionObserver' in window) {
+    const metricObserver = new IntersectionObserver(function (entries, obs) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        const node = entry.target;
+        if (node.classList.contains('counter')) animateCounter(node);
+        if (node.classList.contains('bar-fill')) animateBar(node);
+        obs.unobserve(node);
+      });
+    }, { threshold: 0.5 });
+
+    counters.forEach(function (c) { metricObserver.observe(c); });
+    bars.forEach(function (b) { metricObserver.observe(b); });
+  } else {
+    counters.forEach(animateCounter);
+    bars.forEach(animateBar);
+  }
+
+  /* =========================================================
+     7. TECHNOLOGY ACCORDION
+  ========================================================= */
+  const accButtons = document.querySelectorAll('.acc-btn');
+
+  function closePanel(btn) {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    btn.setAttribute('aria-expanded', 'false');
+    if (panel) panel.style.maxHeight = '0px';
+  }
+
+  function openPanel(btn) {
+    const panel = document.getElementById(btn.getAttribute('aria-controls'));
+    btn.setAttribute('aria-expanded', 'true');
+    if (panel) panel.style.maxHeight = panel.scrollHeight + 40 + 'px';
+  }
+
+  accButtons.forEach(function (btn) {
+    if (btn.getAttribute('aria-expanded') === 'true') {
+      openPanel(btn);
+    } else {
+      closePanel(btn);
+    }
+
+    btn.addEventListener('click', function () {
+      const isOpen = btn.getAttribute('aria-expanded') === 'true';
+      accButtons.forEach(closePanel);
+      if (!isOpen) openPanel(btn);
+    });
+  });
+
+  window.addEventListener('resize', function () {
+    accButtons.forEach(function (btn) {
+      if (btn.getAttribute('aria-expanded') === 'true') {
+        const panel = document.getElementById(btn.getAttribute('aria-controls'));
+        if (panel) panel.style.maxHeight = panel.scrollHeight + 40 + 'px';
+      }
+    });
+  });
+
+  /* =========================================================
+     8. CONTACT FORM → WHATSAPP
+  ========================================================= */
+  const form = document.getElementById('inquiryForm');
+  const successBox = document.getElementById('formSuccess');
+
+  // ⚠️ WhatsApp number: country code + number, no spaces or symbols
+  var WHATSAPP_NUMBER = '916260434891'; // +91 62604 34891
+
+  if (form) {
+    const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+    const phoneRe = /^[+]?[\d\s()-]{7,18}$/;
+
+    function showError(field, show) {
+      const wrap = field.closest('div');
+      const msg = wrap ? wrap.querySelector('.err') : null;
+      if (msg) msg.classList.toggle('hidden', !show);
+      field.classList.toggle('border-red-400', show);
+      field.classList.toggle('border-slate-300', !show);
+      field.setAttribute('aria-invalid', show ? 'true' : 'false');
+    }
+
+    function validateField(field) {
+      const value = (field.value || '').trim();
+      let valid = true;
+
+      if (field.id === 'email')      valid = emailRe.test(value);
+      else if (field.id === 'phone') valid = phoneRe.test(value);
+      else                           valid = value.length > 0;
+
+      showError(field, !valid);
+      return valid;
+    }
+
+    const requiredFields = Array.prototype.slice.call(
+      form.querySelectorAll('input[required], select[required], textarea[required]')
+    );
+
+    requiredFields.forEach(function (field) {
+      field.addEventListener('blur', function () { validateField(field); });
+      field.addEventListener('input', function () {
+        if (field.getAttribute('aria-invalid') === 'true') validateField(field);
+      });
+    });
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      let firstInvalid = null;
+      requiredFields.forEach(function (field) {
+        const ok = validateField(field);
+        if (!ok && !firstInvalid) firstInvalid = field;
+      });
+
+      if (firstInvalid) {
+        successBox.classList.add('hidden');
+        firstInvalid.focus();
+        return;
+      }
+
+      // ---------- Build WhatsApp message ----------
+      var nameVal    = document.getElementById('name').value.trim();
+      var emailVal   = document.getElementById('email').value.trim();
+      var phoneVal   = document.getElementById('phone').value.trim();
+      var companyVal = document.getElementById('company').value.trim();
+      var productVal = document.getElementById('product').value;
+      var messageVal = document.getElementById('message').value.trim();
+
+      var waMessage =
+        '*New Battery Inquiry — LithoPower Energy*\n' +
+        '\n' +
+        '*Name:* ' + nameVal + '\n' +
+        '*Email:* ' + emailVal + '\n' +
+        '*Phone:* ' + phoneVal + '\n' +
+        '*Company:* ' + (companyVal || '—') + '\n' +
+        '*Product Required:* ' + productVal + '\n' +
+        '\n' +
+        '*Message:*\n' + messageVal;
+
+      var waUrl = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(waMessage);
+
+      // Show success notice
+      successBox.classList.remove('hidden');
+      successBox.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'center' });
+
+      // Open WhatsApp (new tab — works on mobile app + WhatsApp Web on desktop)
+      window.open(waUrl, '_blank', 'noopener,noreferrer');
+
+      // Reset form + clear errors
+      form.reset();
+      requiredFields.forEach(function (f) { showError(f, false); });
+    });
+  }
+
+  /* =========================================================
+     9. BACK TO TOP
+  ========================================================= */
+  toTop.addEventListener('click', function () {
+    window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
+  });
+
+  /* =========================================================
+     10. MISC
+  ========================================================= */
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+})();
+</script>
+</body>
+</html>
